@@ -1,10 +1,20 @@
 pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                sh 'echo "Este es una pruebas GIT"'
-            }
-        }
-    }
+
+agent any
+
+options {
+
+buildDiscarder logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')
+
+}
+stages {
+stage('Hello') {
+steps {
+sh '''
+java -version
+'''
+      }
+              }
+      }
+
 }
